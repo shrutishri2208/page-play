@@ -10,6 +10,6 @@
   },
 
   "permissions": ["scripting", "activeTab", "tabs"],
-  "optional_host_permissions": ["https://*/*", "<all_urls>"],
-  "host_permissions": ["https://*/*", "<all_urls>"]
+  "optional_host_permissions": ["https://*/*"],
+  "host_permissions": ["https://*/*"]
 }
