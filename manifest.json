@@ -1,0 +1,15 @@
+{
+  "name": "YouTube videos",
+  "version": "1.1",
+  "manifest_version": 3,
+  "description": "Get a list of suggested YouTube videos related to the webpage",
+
+  "action": {
+    "default_title": "Get pages source",
+    "default_popup": "index.html"
+  },
+
+  "permissions": ["scripting", "activeTab", "tabs"],
+  "optional_host_permissions": ["https://*/*", "<all_urls>"],
+  "host_permissions": ["https://*/*", "<all_urls>"]
+}
