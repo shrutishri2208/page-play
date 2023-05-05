@@ -183,18 +183,13 @@ let heading = document.getElementById("heading");
 let list = document.getElementById("list");
 list.innerHTML = `<h2>Loading...</h2>`;
 
-const fetchData = async () => {
+const fetchData = async (searchTerm) => {
   const response = await fetch(
-    "https://www.googleapis.com/youtube/v3/search?part=snippet&q=How to Use the JavaScript Fetch API to Get Data&type=video&key=AIzaSyC71ixwqTk-VKDVWRbBcwTG_dkSAHSIuQw"
+    `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchTerm}&type=video&key=AIzaSyC71ixwqTk-VKDVWRbBcwTG_dkSAHSIuQw`
   );
   const resjson = await response.json();
   const data = resjson.items;
   displayList(data);
-  // data.forEach((item) => {
-  //   console.log(item.snippet.title);
-  //   console.log(item.snippet.channelTitle);
-  //   console.log(item.id.videoId);
-  // });
 };
 
 function onWindowLoad() {
@@ -217,8 +212,9 @@ function onWindowLoad() {
             });
           })
           .then(function (results) {
-            fetchData();
             // displayList(object);
+            let searchTerm = results[0].result;
+            fetchData(searchTerm);
           })
           .catch(function (error) {
             heading.innerText =
@@ -269,6 +265,7 @@ const DOMtoString = (selector, selector1, selector2, selector3) => {
   selector2.forEach((item) => h2Terms.push(item.innerText));
   selector3.forEach((item) => h3Terms.push(item.innerText));
 
-  return [selector.innerText, selector1.innerText];
+  return selector.innerText;
+  // return [selector.innerText, selector1.innerText];
   // return [selector.innerText, selector1.innerText, h2Terms, h3Terms];
 };
