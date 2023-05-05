@@ -10,7 +10,12 @@ const fetchData = async (searchTerm) => {
   );
   const resjson = await response.json();
   const data = resjson.items;
-  displayList(data);
+  console.log("DATA:", data);
+  if (data.length === 0) {
+    list.innerHTML = `<h2>No related videos found :(</h2>`;
+  } else {
+    displayList(data);
+  }
 };
 
 function onWindowLoad() {
@@ -29,7 +34,7 @@ function onWindowLoad() {
             return chrome.scripting.executeScript({
               target: { tabId: activeTabId },
               func: DOMtoString,
-              args: ["title", "h1", "h2", "h3"],
+              args: ["title"],
             });
           })
           .then(function (results) {
@@ -65,28 +70,13 @@ const displayList = (displayList) => {
   list.innerHTML = listItems;
 };
 
-const DOMtoString = (selector, selector1, selector2, selector3) => {
-  if (selector || selector1 || selector2 || selector3) {
+const DOMtoString = (selector) => {
+  if (selector) {
     selector = document.querySelector(selector);
-    selector1 = document.querySelector(selector1);
-    selector2 = document.querySelectorAll(selector2);
-    selector3 = document.querySelectorAll(selector3);
-    if (!selector && !selector1 && !selector2 && !selector3)
-      return "No node found";
+
+    if (!selector) return "No node found";
   } else {
     selector = document.documentElement;
-    selector1 = document.documentElement;
-    selector2 = document.documentElement;
-    selector3 = document.documentElement;
   }
-
-  let h2Terms = [];
-  let h3Terms = [];
-
-  selector2.forEach((item) => h2Terms.push(item.innerText));
-  selector3.forEach((item) => h3Terms.push(item.innerText));
-
   return selector.innerText;
-  // return [selector.innerText, selector1.innerText];
-  // return [selector.innerText, selector1.innerText, h2Terms, h3Terms];
 };
