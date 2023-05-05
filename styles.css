@@ -1,5 +1,60 @@
 body {
-  margin: 2rem;
-  text-align: center;
   min-width: 300px;
+  font-family: "Rubik", sans-serif;
+  margin: 1rem;
+  background-color: black;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0px;
+}
+
+.item {
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-top: 2rem;
+  transition: all 0.4s;
+}
+
+.item:hover {
+  background-color: rgb(38, 38, 38);
+}
+
+h2 {
+  color: white;
+  font: bold;
+}
+
+h3 {
+  margin-top: -0.75rem;
+  margin-bottom: 0px;
+  color: rgb(117, 117, 117);
+}
+
+img {
+  border-radius: 0.5rem;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+a:visited {
+  color: black;
+}
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #5a5a5a;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
