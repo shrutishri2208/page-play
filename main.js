@@ -181,21 +181,21 @@ window.onload = onWindowLoad;
 let clickBtn = document.getElementById("click-btn");
 let heading = document.getElementById("heading");
 let list = document.getElementById("list");
+list.innerHTML = `<h2>Loading...</h2>`;
 
-// const fetchData = async () => {
-//   const response = await fetch(
-//     "https://www.googleapis.com/youtube/v3/search?part=snippet&q=How to Use the JavaScript Fetch API to Get Data&type=video&key=AIzaSyC71ixwqTk-VKDVWRbBcwTG_dkSAHSIuQw"
-//   );
-//   const resjson = await response.json();
-//   const data = resjson.items;
-//   console.log(data);
-//   displayList(data);
-//   // data.forEach((item) => {
-//   //   console.log(item.snippet.title);
-//   //   console.log(item.snippet.channelTitle);
-//   //   console.log(item.id.videoId);
-//   // });
-// };
+const fetchData = async () => {
+  const response = await fetch(
+    "https://www.googleapis.com/youtube/v3/search?part=snippet&q=How to Use the JavaScript Fetch API to Get Data&type=video&key=AIzaSyC71ixwqTk-VKDVWRbBcwTG_dkSAHSIuQw"
+  );
+  const resjson = await response.json();
+  const data = resjson.items;
+  displayList(data);
+  // data.forEach((item) => {
+  //   console.log(item.snippet.title);
+  //   console.log(item.snippet.channelTitle);
+  //   console.log(item.id.videoId);
+  // });
+};
 
 function onWindowLoad() {
   chrome.permissions.contains(
@@ -217,8 +217,8 @@ function onWindowLoad() {
             });
           })
           .then(function (results) {
-            // fetchData();
-            displayList(object);
+            fetchData();
+            // displayList(object);
           })
           .catch(function (error) {
             heading.innerText =
