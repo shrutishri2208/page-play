@@ -24,12 +24,21 @@ ul {
 h2 {
   color: white;
   font: bold;
+  transition: all 0.4s;
+}
+h2:hover {
+  color: rgb(166, 166, 166);
 }
 
 h3 {
   margin-top: -0.75rem;
   margin-bottom: 0px;
   color: rgb(117, 117, 117);
+  transition: all 0.4s;
+}
+
+h3:hover {
+  color: rgb(80, 80, 80);
 }
 
 img {
