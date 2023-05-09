@@ -5,6 +5,15 @@ body {
   background-color: black;
 }
 
+#title {
+  color: #fff500;
+  font-family: "Righteous", cursive;
+  line-height: 1.3rem;
+}
+h1 {
+  margin-bottom: 0px;
+}
+
 ul {
   list-style-type: none;
   padding: 0px;
