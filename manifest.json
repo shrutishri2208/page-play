@@ -1,11 +1,12 @@
 {
-  "name": "YouTube videos",
+  "name": "Page Play",
   "version": "1.1",
+  "icons": { "16": "logo16.png", "48": "logo48.png", "128": "logo128.png" },
   "manifest_version": 3,
   "description": "Get a list of suggested YouTube videos related to the webpage",
 
   "action": {
-    "default_title": "Get pages source",
+    "default_title": "Page Play",
     "default_popup": "index.html"
   },
 
